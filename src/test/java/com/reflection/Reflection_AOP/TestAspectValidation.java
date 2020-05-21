@@ -3,11 +3,13 @@ package com.reflection.Reflection_AOP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.reflection.Reflection_AOP.model.Order;
 
-public class TestAspectValidation extends ReflectionAopApplicationTests{
+@SpringBootTest
+public class TestAspectValidation {
 
     
 	@Test

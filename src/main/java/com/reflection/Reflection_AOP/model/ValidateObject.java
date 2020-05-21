@@ -38,7 +38,7 @@ public abstract class ValidateObject  {
 	            f.setAccessible(true);
 	            try {
 	                String val = (String) f.get(this);
-	                if (null != val && !val.isEmpty()) {
+	                if (null != val && val.isEmpty()) {
 	                    rtn = annotation.error();
 	                }
 	            } catch (IllegalAccessException e) {

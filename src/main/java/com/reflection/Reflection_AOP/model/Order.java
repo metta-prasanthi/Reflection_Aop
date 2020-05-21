@@ -8,8 +8,8 @@ import com.reflection.Reflection_AOP.reflection.NotNull;
 public class Order extends ValidateObject{
 
 	@NotNull
-	@NotEmpty
 	Long orderId;
+	@NotEmpty
 	String descr;
 	
 	public Order() {
@@ -42,9 +42,16 @@ public class Order extends ValidateObject{
         String notEmptyreturnVal = "InValid";
         
         try {
-        	Field field   = this.getClass().getField("orderId");
-        	notNullreturnVal = checkNotNull(field);
-        	notEmptyreturnVal = checkNotEmpty(field);
+        	Class<Order> clazz = Order.class;
+        	Field[] fields = clazz.getDeclaredFields();
+        	
+        	//Print all filed names
+        	for (Field f : fields ) 
+        	System.out.println("Field Name : " + f.getName());
+        	
+        	//Validate OrderId for null 
+        	notNullreturnVal = checkNotNull(fields[0]);
+        	notEmptyreturnVal = checkNotEmpty(fields[1]);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
