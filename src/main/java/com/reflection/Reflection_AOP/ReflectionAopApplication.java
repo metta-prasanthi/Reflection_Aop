@@ -7,7 +7,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import com.reflection.Reflection_AOP.Service.OrderService;
 
 @SpringBootApplication
-@EnableAspectJAutoProxy(proxyTargetClass=true)
+//@EnableAspectJAutoProxy(proxyTargetClass=true)
 public class ReflectionAopApplication {
 
 	public static void main(String[] args) {

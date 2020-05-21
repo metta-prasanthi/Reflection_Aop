@@ -1,8 +1,11 @@
 package com.reflection.Reflection_AOP.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reflection.Reflection_AOP.Service.OrderService;
@@ -13,11 +16,15 @@ public class OrderController {
 
 		@Autowired
 		private OrderService orderService;
-
-		@GetMapping(value = "/add/order")
-		public Order addOrder(@RequestParam("orderId") Long orderId, @RequestParam("descr") String descr) {
-
-			return orderService.displayOrder(orderId, descr);
-
+		
+		@RequestMapping("/getOrderById/{id}")
+		public Order getUserByFirstName(@PathVariable Long id) {
+			return orderService.getOrder(id);
 		}
+
+		@PostMapping(value="/save")
+		public Order createOrder(@RequestBody Order order) {
+			 return orderService.createOrder(order);
+		}
+
 }
